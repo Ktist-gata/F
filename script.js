@@ -1,7 +1,20 @@
-// 抓取按鈕元素
-const clickMeBtn = document.getElementById('clickMeBtn');
+const container = document.getElementById('info-container');
 
-// 監聽按鈕的點擊事件
-clickMeBtn.addEventListener('click', () => {
-  alert('你成功點擊了按鈕！');
+infoList.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const title = document.createElement('h2');
+  const link = document.createElement('a');
+  link.href = `detail.html?id=${item.id}`;
+  link.textContent = item.title;
+  title.appendChild(link);
+
+  const content = document.createElement('p');
+  content.textContent = item.content;
+
+  card.appendChild(title);
+  card.appendChild(content);
+
+  container.appendChild(card);
 });
